@@ -15,6 +15,7 @@ const Navbar = () => {
     { to: "/books", label: "Browse Books" },
     ...(user ? [{ to: "/orders", label: "My Orders" }] : []),
     ...(user?.role === "admin" ? [{ to: "/admin", label: "Admin" }] : []),
+    { to: "/api-docs", label: "API Docs" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
