@@ -14,6 +14,7 @@ import RegisterPage from "./pages/RegisterPage";
 import CartPage from "./pages/CartPage";
 import OrdersPage from "./pages/OrdersPage";
 import AdminPage from "./pages/AdminPage";
+import ApiDocsPage from "./pages/ApiDocsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
