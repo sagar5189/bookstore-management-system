@@ -150,6 +150,7 @@ const AdminPage = () => {
                     <div><Label>Stock</Label><Input type="number" value={formStock} onChange={e => setFormStock(e.target.value)} /></div>
                   </div>
                   <div><Label>Description</Label><textarea className="w-full rounded-md border bg-background px-3 py-2 text-sm" rows={3} value={formDesc} onChange={e => setFormDesc(e.target.value)} /></div>
+                  <div><Label>Image URL</Label><Input value={formImageUrl} onChange={e => setFormImageUrl(e.target.value)} placeholder="https://example.com/cover.jpg" /></div>
                   <Button className="w-full" onClick={handleSaveBook}>{editingBook ? "Update" : "Add"} Book</Button>
                 </div>
               </DialogContent>
