@@ -43,7 +43,7 @@ const AdminPage = () => {
   }
 
   const resetForm = () => {
-    setFormTitle(""); setFormAuthor(""); setFormGenre(""); setFormPrice(""); setFormStock(""); setFormIsbn(""); setFormDesc("");
+    setFormTitle(""); setFormAuthor(""); setFormGenre(""); setFormPrice(""); setFormStock(""); setFormIsbn(""); setFormDesc(""); setFormImageUrl("");
     setEditingBook(null);
   };
 
