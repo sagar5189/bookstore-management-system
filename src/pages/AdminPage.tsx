@@ -61,7 +61,7 @@ const AdminPage = () => {
       id: editingBook?.id || `new-${Date.now()}`,
       title: formTitle, authors: formAuthor.split(",").map(a => a.trim()), genre: formGenre || "Fiction",
       isbn: formIsbn, price: parseFloat(formPrice), description: formDesc,
-      stockQuantity: parseInt(formStock) || 0, imageUrl: editingBook?.imageUrl || "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop",
+      stockQuantity: parseInt(formStock) || 0, imageUrl: formImageUrl || editingBook?.imageUrl || "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop",
     };
     if (editingBook) {
       setBooks(prev => prev.map(b => b.id === editingBook.id ? bookData : b));
