@@ -28,6 +28,15 @@ const AdminPage = () => {
   const [formStock, setFormStock] = useState("");
   const [formIsbn, setFormIsbn] = useState("");
   const [formDesc, setFormDesc] = useState("");
+  const [formImageUrl, setFormImageUrl] = useState("");
+
+  // Mock users for admin user management
+  const [mockUsers] = useState([
+    { id: "u1", name: "Alice Johnson", email: "alice@email.com", role: "customer" as const },
+    { id: "u2", name: "Bob Smith", email: "bob@email.com", role: "customer" as const },
+    { id: "u3", name: "Carol White", email: "carol@email.com", role: "customer" as const },
+    { id: "admin1", name: "Admin User", email: "admin@bookstore.com", role: "admin" as const },
+  ]);
 
   if (!user || user.role !== "admin") {
     return <Navigate to="/login" />;
