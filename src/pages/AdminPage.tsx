@@ -51,7 +51,7 @@ const AdminPage = () => {
     setEditingBook(book);
     setFormTitle(book.title); setFormAuthor(book.authors.join(", ")); setFormGenre(book.genre);
     setFormPrice(book.price.toString()); setFormStock(book.stockQuantity.toString());
-    setFormIsbn(book.isbn); setFormDesc(book.description);
+    setFormIsbn(book.isbn); setFormDesc(book.description); setFormImageUrl(book.imageUrl);
     setBookDialogOpen(true);
   };
 
