@@ -104,6 +104,8 @@ const BookDetailPage = () => {
           </div>
         </div>
       </div>
+
+      <BookRecommendations currentBookId={book.id} genre={book.genre} />
     </div>
   );
 };
