@@ -17,6 +17,7 @@ const Footer = () => (
             <Link to="/books" className="hover:text-primary">Browse Books</Link>
             <Link to="/login" className="hover:text-primary">Sign In</Link>
             <Link to="/register" className="hover:text-primary">Create Account</Link>
+            <Link to="/api-docs" className="hover:text-primary">API Documentation</Link>
           </div>
         </div>
         <div>

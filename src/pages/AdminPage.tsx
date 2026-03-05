@@ -28,13 +28,22 @@ const AdminPage = () => {
   const [formStock, setFormStock] = useState("");
   const [formIsbn, setFormIsbn] = useState("");
   const [formDesc, setFormDesc] = useState("");
+  const [formImageUrl, setFormImageUrl] = useState("");
+
+  // Mock users for admin user management
+  const [mockUsers] = useState([
+    { id: "u1", name: "Alice Johnson", email: "alice@email.com", role: "customer" as const },
+    { id: "u2", name: "Bob Smith", email: "bob@email.com", role: "customer" as const },
+    { id: "u3", name: "Carol White", email: "carol@email.com", role: "customer" as const },
+    { id: "admin1", name: "Admin User", email: "admin@bookstore.com", role: "admin" as const },
+  ]);
 
   if (!user || user.role !== "admin") {
     return <Navigate to="/login" />;
   }
 
   const resetForm = () => {
-    setFormTitle(""); setFormAuthor(""); setFormGenre(""); setFormPrice(""); setFormStock(""); setFormIsbn(""); setFormDesc("");
+    setFormTitle(""); setFormAuthor(""); setFormGenre(""); setFormPrice(""); setFormStock(""); setFormIsbn(""); setFormDesc(""); setFormImageUrl("");
     setEditingBook(null);
   };
 
@@ -42,7 +51,7 @@ const AdminPage = () => {
     setEditingBook(book);
     setFormTitle(book.title); setFormAuthor(book.authors.join(", ")); setFormGenre(book.genre);
     setFormPrice(book.price.toString()); setFormStock(book.stockQuantity.toString());
-    setFormIsbn(book.isbn); setFormDesc(book.description);
+    setFormIsbn(book.isbn); setFormDesc(book.description); setFormImageUrl(book.imageUrl);
     setBookDialogOpen(true);
   };
 
@@ -52,7 +61,7 @@ const AdminPage = () => {
       id: editingBook?.id || `new-${Date.now()}`,
       title: formTitle, authors: formAuthor.split(",").map(a => a.trim()), genre: formGenre || "Fiction",
       isbn: formIsbn, price: parseFloat(formPrice), description: formDesc,
-      stockQuantity: parseInt(formStock) || 0, imageUrl: editingBook?.imageUrl || "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop",
+      stockQuantity: parseInt(formStock) || 0, imageUrl: formImageUrl || editingBook?.imageUrl || "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&h=600&fit=crop",
     };
     if (editingBook) {
       setBooks(prev => prev.map(b => b.id === editingBook.id ? bookData : b));
@@ -109,6 +118,7 @@ const AdminPage = () => {
         <TabsList>
           <TabsTrigger value="books">Books</TabsTrigger>
           <TabsTrigger value="orders">Orders</TabsTrigger>
+          <TabsTrigger value="users">Users</TabsTrigger>
         </TabsList>
 
         {/* Books Tab */}
@@ -140,6 +150,7 @@ const AdminPage = () => {
                     <div><Label>Stock</Label><Input type="number" value={formStock} onChange={e => setFormStock(e.target.value)} /></div>
                   </div>
                   <div><Label>Description</Label><textarea className="w-full rounded-md border bg-background px-3 py-2 text-sm" rows={3} value={formDesc} onChange={e => setFormDesc(e.target.value)} /></div>
+                  <div><Label>Image URL</Label><Input value={formImageUrl} onChange={e => setFormImageUrl(e.target.value)} placeholder="https://example.com/cover.jpg" /></div>
                   <Button className="w-full" onClick={handleSaveBook}>{editingBook ? "Update" : "Add"} Book</Button>
                 </div>
               </DialogContent>
@@ -218,6 +229,31 @@ const AdminPage = () => {
                 <div className="mt-2 text-right font-display font-bold text-primary">${order.totalPrice.toFixed(2)}</div>
               </div>
             ))}
+          </div>
+        </TabsContent>
+
+        {/* Users Tab */}
+        <TabsContent value="users">
+          <h2 className="mb-4 font-display text-xl font-semibold">Registered Users</h2>
+          <div className="rounded-lg border">
+            <table className="w-full text-sm">
+              <thead className="bg-secondary">
+                <tr>
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">Name</th>
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">Email</th>
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {mockUsers.map(u => (
+                  <tr key={u.id} className="border-t">
+                    <td className="px-4 py-3 font-medium">{u.name}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{u.email}</td>
+                    <td className="px-4 py-3"><Badge variant={u.role === "admin" ? "default" : "secondary"}>{u.role}</Badge></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </TabsContent>
       </Tabs>

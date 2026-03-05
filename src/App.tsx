@@ -14,6 +14,7 @@ import RegisterPage from "./pages/RegisterPage";
 import CartPage from "./pages/CartPage";
 import OrdersPage from "./pages/OrdersPage";
 import AdminPage from "./pages/AdminPage";
+import ApiDocsPage from "./pages/ApiDocsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -37,6 +38,7 @@ const App = () => (
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/orders" element={<OrdersPage />} />
                 <Route path="/admin" element={<AdminPage />} />
+                <Route path="/api-docs" element={<ApiDocsPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
