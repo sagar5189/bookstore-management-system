@@ -1,4 +1,5 @@
 import { useParams, Link } from "react-router-dom";
+import BookRecommendations from "@/components/BookRecommendations";
 import { mockBooks } from "@/data/mockData";
 import { useStore } from "@/context/StoreContext";
 import { Button } from "@/components/ui/button";
