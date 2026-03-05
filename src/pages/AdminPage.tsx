@@ -118,6 +118,7 @@ const AdminPage = () => {
         <TabsList>
           <TabsTrigger value="books">Books</TabsTrigger>
           <TabsTrigger value="orders">Orders</TabsTrigger>
+          <TabsTrigger value="users">Users</TabsTrigger>
         </TabsList>
 
         {/* Books Tab */}
