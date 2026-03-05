@@ -231,6 +231,31 @@ const AdminPage = () => {
             ))}
           </div>
         </TabsContent>
+
+        {/* Users Tab */}
+        <TabsContent value="users">
+          <h2 className="mb-4 font-display text-xl font-semibold">Registered Users</h2>
+          <div className="rounded-lg border">
+            <table className="w-full text-sm">
+              <thead className="bg-secondary">
+                <tr>
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">Name</th>
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">Email</th>
+                  <th className="px-4 py-3 text-left font-medium text-muted-foreground">Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                {mockUsers.map(u => (
+                  <tr key={u.id} className="border-t">
+                    <td className="px-4 py-3 font-medium">{u.name}</td>
+                    <td className="px-4 py-3 text-muted-foreground">{u.email}</td>
+                    <td className="px-4 py-3"><Badge variant={u.role === "admin" ? "default" : "secondary"}>{u.role}</Badge></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </TabsContent>
       </Tabs>
     </div>
   );
