@@ -41,7 +41,7 @@ export const mockBooks: Book[] = [
   {
     id: "8", title: "Clean Code", authors: ["Robert C. Martin"], genre: "Technology",
     isbn: "978-0132350884", price: 34.99, description: "A Handbook of Agile Software Craftsmanship. Even bad code can function. But if code isn't clean, it can bring a development organization to its knees.",
-    stockQuantity: 22, imageUrl: "https://images.unsplash.com/photo-1515879218367-8466d910auj7?w=400&h=600&fit=crop", rating: 4.5,
+    stockQuantity: 22, imageUrl: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=600&fit=crop", rating: 4.5,
   },
 ];
 
