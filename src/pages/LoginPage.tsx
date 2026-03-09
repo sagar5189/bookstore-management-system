@@ -16,7 +16,7 @@ const LoginPage = () => {
     e.preventDefault();
     const isAdmin = email.includes("admin");
     login(email, password, isAdmin ? "admin" : "customer");
-    navigate("/");
+    navigate("/books");
   };
 
   return (
