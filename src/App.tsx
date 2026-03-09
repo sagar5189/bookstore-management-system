@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { StoreProvider } from "@/context/StoreContext";
 import Navbar from "@/components/Navbar";
+import CursorTrail from "@/components/CursorTrail";
 import Footer from "@/components/Footer";
 import Index from "./pages/Index";
 import BooksPage from "./pages/BooksPage";
