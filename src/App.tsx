@@ -28,6 +28,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <div className="flex min-h-screen flex-col">
+            <CursorTrail />
             <Navbar />
             <main className="flex-1">
               <Routes>
